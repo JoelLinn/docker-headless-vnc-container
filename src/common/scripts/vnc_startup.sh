@@ -9,10 +9,8 @@ USAGE:
 docker run -it -p 6901:6901 -p 5901:5901 consol/<image>:<tag> <option>
 
 IMAGES:
-consol/ubuntu-xfce-vnc
-consol/centos-xfce-vnc
-consol/ubuntu-icewm-vnc
-consol/centos-icewm-vnc
+joellinn/ubuntu-xfce-vnc
+joellinn/ubuntu-icewm-vnc
 
 TAGS:
 latest  stable version of branch 'master'
@@ -99,6 +97,8 @@ if [[ $DEBUG == true ]]; then echo "vncserver $DISPLAY -depth $VNC_COL_DEPTH -ge
 vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION &> $STARTUPDIR/no_vnc_startup.log
 echo -e "start window manager\n..."
 $HOME/wm_startup.sh &> $STARTUPDIR/wm_startup.log
+# start sound
+$STARTUPDIR/snd_startup.sh
 
 ## log connect options
 echo -e "\n\n------------------ VNC environment started ------------------"
