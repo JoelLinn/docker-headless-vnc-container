@@ -2,7 +2,7 @@
 
 FROM ubuntu:18.04
 
-MAINTAINER Simon Hofmann "jl@conductive.de"
+MAINTAINER Joel Linn "jl@conductive.de"
 ENV REFRESHED_AT 2018-10-29
 
 LABEL io.k8s.description="Headless VNC Container with Xfce window manager, firefox and chromium" \
