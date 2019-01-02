@@ -3,7 +3,21 @@
 set -e
 
 echo "Install Xfce4 UI components"
-apt-get update 
+apt-get update
 apt-get install -y supervisor xfce4 xfce4-terminal xterm
 apt-get purge -y pm-utils xscreensaver*
 apt-get clean -y
+
+# desktop shortcuts
+function desktop_shortcut {
+  src=/usr/share/applications/$1.desktop
+  dstPath=/headless/Desktop/
+  if [ -f $src ]
+  then
+    mkdir -p $dstPath
+    cp $src $dstPath
+    chmod +x $dstPath$1.desktop
+  fi
+}
+desktop_shortcut firefox
+desktop_shortcut chromium-browser
